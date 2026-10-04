@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡CUMPLE DE KEI! ⚡👾</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti for extreme explosions -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts for Cyber/Arcade Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #030007;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+            color: #00ffcc;
+        }
+
+        .font-arcade {
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .font-glitch {
+            font-family: 'Rubik Glitch', cursive;
+        }
+
+        /* Cyberpunk Grids and Neonglows */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 127, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .neon-box-pink {
+            box-shadow: 0 0 15px #ff007f, inset 0 0 15px #ff007f;
+            border: 2px solid #ff007f;
+        }
+
+        .neon-box-green {
+            box-shadow: 0 0 15px #00ff66, inset 0 0 15px #00ff66;
+            border: 2px solid #00ff66;
+        }
+
+        .neon-box-cyan {
+            box-shadow: 0 0 15px #00f0ff, inset 0 0 15px #00f0ff;
+            border: 2px solid #00f0ff;
+        }
+
+        .text-neon-pink {
+            color: #ff007f;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 40px #ff007f;
+        }
+
+        .text-neon-yellow {
+            color: #ffee00;
+            text-shadow: 0 0 10px #ffee00, 0 0 20px #ffee00, 0 0 40px #ffee00;
+        }
+
+        .text-neon-green {
+            color: #00ff66;
+            text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66, 0 0 40px #00ff66;
+        }
+
+        .text-neon-cyan {
+            color: #00f0ff;
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+        }
+
+        /* Glitch Animation */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        .glitch-anim:hover {
+            animation: glitch 0.2s infinite;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 12s linear infinite;
+        }
+
+        /* Disco Light Spinning Background */
+        @keyframes discoSpin {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .disco-bg {
+            animation: discoSpin 8s linear infinite;
+        }
+    </style>
+</head>
+<body class="cyber-grid disco-bg min-h-screen flex flex-col justify-between relative selection:bg-yellow-400 selection:text-black">
+
+    <div id="emoji-container" class="absolute inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Top Intergalactic Marquee -->
+    <div class="bg-black/90 border-y-2 border-pink-500 py-2 z-20 shadow-[0_0_20px_#ff007f]">
+        <div class="marquee-container text-xs sm:text-sm font-arcade text-neon-yellow">
+            <span class="marquee-content">
+                ⚡ CUMPLEAÑOS DE KEI PRESENTADO POR EL MEJOR EQUIPO EJECUTIVO NO TE LO PIERDAS POR NADA DEL MUNDO 💥
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="z-10 flex-grow flex flex-col items-center justify-center text-center px-4 py-8 max-w-5xl mx-auto w-full">
+        
+        <!-- Creators Badge -->
+        <div class="mb-6 bg-black/80 px-6 py-2.5 rounded-xl neon-box-cyan transform -rotate-1 hover:rotate-0 transition-transform">
+            <span class="text-xs sm:text-sm font-arcade text-neon-cyan tracking-widest">
+                PRESENTADO POR: SAAEL, CARLOS Y ALEXIS + INVITADO ESPECIAL
+            </span>
+        </div>
+
+        <!-- Glitchy Giant Title -->
+        <h1 class="font-glitch text-6xl sm:text-9xl tracking-wider text-neon-pink mb-4 glitch-anim uppercase select-none">
+            ¡FELIZ<br> CUMPLEAÑOS<br> <span class="text-neon-cyan">KEI!</span>
+        </h1>
+
+        <!-- Subtitle Mission Statement -->
+        <p class="font-arcade text-xs sm:text-base text-neon-green max-w-2xl mb-8 leading-relaxed bg-black/70 p-5 rounded-2xl neon-box-green">
+            &gt; LLEGATE CACHORRO Y NO LLEGUES TARDE <br>
+            &gt; TRAE TU BOTELLA MI COMPADRE <br>
+            &gt; ENTRADAS GRATIS PARA QUE NO LLORES <br>
+            &gt; QUE MANGUANGUA <br>
+            
+        </p>
+
+        <!-- Live Party Counter Box -->
+        <div class="bg-black/80 border-2 border-yellow-400 p-4 rounded-2xl shadow-[0_0_20px_#ffee00] w-full max-w-md">
+            <div class="font-arcade text-[10px] sm:text-xs text-yellow-300 mb-1">LUGAR DE LA FIESTA</div>
+            <div class="font-arcade text-xs sm:text-sm text-neon-yellow leading-relaxed">HAY QUE PREGUNTAR PRIMERO PARA EL PERMISO</div>
+        </div>
+
+    </main>
+
+    <!-- Footer Intergalactic Signature -->
+    <footer class="z-10 bg-black/90 border-t-2 border-green-500 py-4 text-center px-4">
+        <p class="font-arcade text-[10px] sm:text-xs text-gray-300">
+            TRANSMISIÓN EN VIVO ESTELAR CREADA CON AMOR Y CARIÑO POR <span class="text-neon-pink">SAAEL</span>, <span class="text-neon-cyan">CARLOS</span> Y <span class="text-neon-green">ALEXIS</span> PARA KEI.
+        </p>
+    </footer>
+
+    <script>
+        // Auto trigger epic welcome confetti
+        window.onload = function() {
+            setTimeout(() => {
+                launchLasers();
+            }, 600);
+            
+            // Spawn background emojis periodically
+            setInterval(spawnFloatingEmoji, 800);
+        };
+
+        function launchLasers() {
+            confetti({
+                particleCount: 150,
+                spread: 120,
+                origin: { y: 0.7 },
+                colors: ['#ff007f', '#00ff66', '#ffee00', '#00f0ff']
+            });
+        }
+
+        function spawnFloatingEmoji() {
+            const emojis = ['🚀', '⚡', '🎂', '👾', '🔥', '🎉', '💻', '⭐', '🎈'];
+            const container = document.getElementById('emoji-container');
+            const el = document.createElement('div');
+            
+            el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.position = 'absolute';
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '105vh';
+            el.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            el.style.transition = 'transform 4s linear, opacity 4s linear';
+            el.style.opacity = '0.7';
+            
+            container.appendChild(el);
+
+            setTimeout(() => {
+                el.style.transform = `translateY(-120vh) rotate(${Math.random() * 360}deg)`;
+                el.style.opacity = '0';
+            }, 50);
+
+            setTimeout(() => {
+                el.remove();
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
